@@ -1,3 +1,6 @@
+String.prototype.equalsIgnoreCase = function (compareString) { 
+    return this.toUpperCase() === compareString.toUpperCase(); 
+}; 
 
 //Function to generate Computer's choice
 function getComputerChoice() { 
