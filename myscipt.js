@@ -72,4 +72,4 @@ function game() {
 
 }
 
-game();
+document.getElementById("start").addEventListener("click", game);
