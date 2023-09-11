@@ -39,7 +39,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() { 
-    const playerSelection = prompt("Enter your choice", "Rock");
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection,computerSelection));
+    alert("This is a classic Rock-Paper-Scissors Game");
+
+    let score = 0;
+    for(let i = 1; i <= 5; i++) { 
+        const playerSelection = prompt("Pick your Weapon", "Rock");
+        const computerSelection = getComputerChoice();
+        let str = playRound(playerSelection,computerSelection);
+        console.log(str);
+        if(str.includes("Win")) { 
+            score++;
+        } else if(str.includes("Lose")) { 
+            score--;
+        }
+    }
+
+    if(score > 0) { 
+        console.log("The Winner of the Best of 5 rounds is You!");
+    } else if(score < 0) { 
+        console.log("The Winner of the Best of 5 rounds is CPU!");
+    } else { 
+        console.log("It's a draw!");
+    }
 }
