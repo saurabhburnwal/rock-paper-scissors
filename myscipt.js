@@ -14,18 +14,16 @@ function getComputerChoice() {
 //Function that accepts player and computer selection and simulates one round
 function playRound(playerSelection, computerSelection) { 
 
-    p = playerSelection.toLowerCase();
-
     if(playerSelection.equalsIgnoreCase(computerSelection)) { 
         return "It's a Draw! " + computerSelection + " can't beat " + computerSelection;
     } else { 
-        if(p === "rock") { 
+        if(playerSelection.equalsIgnoreCase("rock")) { 
             if(computerSelection === "Paper") { 
                 return "You Lose! Paper beats Rock";
             } else { 
                 return "You Win! Rock beats Scissors";
             }
-        } else if(p === "paper") { 
+        } else if(playerSelection.equalsIgnoreCase("paper")) { 
             if(computerSelection === "Scissors") { 
                 return "You Lose! Scissors beats Paper";
             } else { 
