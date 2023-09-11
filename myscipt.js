@@ -17,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
     p = playerSelection.toLowerCase();
 
     if(playerSelection.equalsIgnoreCase(computerSelection)) { 
-        return "It's a Draw!";
+        return "It's a Draw! " + computerSelection + " can't beat " + computerSelection;
     } else { 
         if(p === "rock") { 
             if(computerSelection === "Paper") { 
