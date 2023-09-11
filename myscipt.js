@@ -38,6 +38,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = prompt("Enter your choice", "Rock");
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection,computerSelection));
+function game() { 
+    const playerSelection = prompt("Enter your choice", "Rock");
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection,computerSelection));
+}
