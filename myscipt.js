@@ -5,6 +5,7 @@ String.prototype.equalsIgnoreCase = function (compareString) {
 
 //Function to generate Computer's choice
 function getComputerChoice() { 
+
     const ch = ['Rock','Paper','Scissors'];
     var cpu = Math.floor(Math.random() * 3);
     return ch[cpu];
@@ -12,7 +13,9 @@ function getComputerChoice() {
 
 //Function that accepts player and computer selection and simulates one round
 function playRound(playerSelection, computerSelection) { 
+
     p = playerSelection.toLowerCase();
+
     if(playerSelection.equalsIgnoreCase(computerSelection)) { 
         return "It's a Draw!";
     } else { 
@@ -36,22 +39,27 @@ function playRound(playerSelection, computerSelection) {
             }
         }
     }
+
 }
 
 function game() { 
+
     alert("This is a classic Rock-Paper-Scissors Game");
 
     let score = 0;
     for(let i = 1; i <= 5; i++) { 
+
         const playerSelection = prompt("Pick your Weapon", "Rock");
         const computerSelection = getComputerChoice();
         let str = playRound(playerSelection,computerSelection);
+        
         console.log(str);
         if(str.includes("Win")) { 
             score++;
         } else if(str.includes("Lose")) { 
             score--;
         }
+
     }
 
     if(score > 0) { 
@@ -61,4 +69,5 @@ function game() {
     } else { 
         console.log("It's a draw!");
     }
+
 }
