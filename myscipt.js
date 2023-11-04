@@ -46,16 +46,17 @@ function game() {
     let cscore = 0;
     
     const btns = document.querySelectorAll("button");
-    const score = document.querySelector("#result");
+    const score = document.createElement("div");
+    const br = document.createElement("br");
     const event = new Event("gameover");
     let div = document.createElement("div");
     
     btns.forEach((btn) => {
-        btn.addEventListener("click", function Shoot () { 
+        btn.addEventListener("click", () => { 
             let playerSelection = btn.id;
             let computerSelection = getComputerChoice();
             let result = playRound(playerSelection, computerSelection);
-            score.textContent = result;
+            display(result);
             if(result.includes("Win")) { 
                 pscore++;
             } else if(result.includes("Lose")) {
@@ -79,6 +80,13 @@ function game() {
         });
     });
     
+    function display(result) { 
+        score.textContent = result;
+        const clone = score.cloneNode(true);
+        document.body.appendChild(clone);
+        document.body.appendChild(br);
+    }
+
 }
 
 game();
