@@ -1,11 +1,11 @@
 
+//Javascript implmentation of standard equlsIgnoreCase() method
 String.prototype.equalsIgnoreCase = function (compareString) { 
     return this.toUpperCase() === compareString.toUpperCase(); 
 }; 
 
 //Function to generate Computer's choice
 function getComputerChoice() { 
-
     const ch = ['Rock','Paper','Scissors'];
     var cpu = Math.floor(Math.random() * 3);
     return ch[cpu];
@@ -45,20 +45,6 @@ function game() {
     alert("This is a classic Rock-Paper-Scissors Game");
 
     let score = 0;
-    for(let i = 1; i <= 5; i++) { 
-
-        const playerSelection = prompt("Pick your Weapon", "Rock");
-        const computerSelection = getComputerChoice();
-        let str = playRound(playerSelection,computerSelection);
-        
-        console.log(str);
-        if(str.includes("Win")) { 
-            score++;
-        } else if(str.includes("Lose")) { 
-            score--;
-        }
-
-    }
 
     if(score > 0) { 
         console.log("The Winner of the Best of 5 rounds is You!");
