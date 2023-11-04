@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 //Function that accepts player and computer selection and simulates one round
 function playRound(playerSelection, computerSelection) { 
-
+    
     if(playerSelection.equalsIgnoreCase(computerSelection)) { 
         return "It's a Draw! " + computerSelection + " cannot beat " + computerSelection;
     } else { 
@@ -37,25 +37,48 @@ function playRound(playerSelection, computerSelection) {
             }
         }
     }
-
+    
 }
 
 //Function that plays the rounds and keeps track of the score
 function game() {
     let pscore = 0;
     let cscore = 0;
-
+    
     const btns = document.querySelectorAll("button");
-    const div = document.querySelector("#result");
+    const score = document.querySelector("#result");
+    const event = new Event("gameover");
+    let div = document.createElement("div");
+    
     btns.forEach((btn) => {
-        btn.addEventListener("click", () => { 
+        btn.addEventListener("click", function Shoot () { 
             let playerSelection = btn.id;
             let computerSelection = getComputerChoice();
             let result = playRound(playerSelection, computerSelection);
-            div.textContent = result;
+            score.textContent = result;
+            if(result.includes("Win")) { 
+                pscore++;
+            } else if(result.includes("Lose")) {
+                cscore++;
+            }
+            if(pscore == 5 || cscore == 5) { 
+                div.dispatchEvent(event);
+            }
         });
     });
-
+    
+    div.addEventListener("gameover", () => { 
+        if(pscore == 5) { 
+            div.textContent = "You Won!";
+        } else { 
+            div.textContent = "You Lost!";
+        }
+        document.body.appendChild(div);
+        btns.forEach((btn) => { 
+            btn.disabled = true;
+        });
+    });
+    
 }
 
 game();
