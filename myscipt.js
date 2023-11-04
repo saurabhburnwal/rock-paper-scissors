@@ -15,7 +15,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) { 
 
     if(playerSelection.equalsIgnoreCase(computerSelection)) { 
-        return "It's a Draw! " + computerSelection + " can't beat " + computerSelection;
+        return "It's a Draw! " + computerSelection + " cannot beat " + computerSelection;
     } else { 
         if(playerSelection.equalsIgnoreCase("rock")) { 
             if(computerSelection === "Paper") { 
@@ -46,12 +46,13 @@ function game() {
     let cscore = 0;
 
     const btns = document.querySelectorAll("button");
+    const div = document.querySelector("#result");
     btns.forEach((btn) => {
         btn.addEventListener("click", () => { 
             let playerSelection = btn.id;
             let computerSelection = getComputerChoice();
             let result = playRound(playerSelection, computerSelection);
-            console.log(result);
+            div.textContent = result;
         });
     });
 
