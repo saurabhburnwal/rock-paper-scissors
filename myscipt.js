@@ -40,20 +40,21 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() { 
+//Function that plays the rounds and keeps track of the score
+function game() {
+    let pscore = 0;
+    let cscore = 0;
 
-    alert("This is a classic Rock-Paper-Scissors Game");
-
-    let score = 0;
-
-    if(score > 0) { 
-        console.log("The Winner of the Best of 5 rounds is You!");
-    } else if(score < 0) { 
-        console.log("The Winner of the Best of 5 rounds is CPU!");
-    } else { 
-        console.log("It's a draw!");
-    }
+    const btns = document.querySelectorAll("button");
+    btns.forEach((btn) => {
+        btn.addEventListener("click", () => { 
+            let playerSelection = btn.id;
+            let computerSelection = getComputerChoice();
+            let result = playRound(playerSelection, computerSelection);
+            console.log(result);
+        });
+    });
 
 }
 
-document.getElementById("start").addEventListener("click", game);
+game();
